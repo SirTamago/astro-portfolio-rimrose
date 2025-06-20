@@ -6,6 +6,8 @@ import BottomLayout from '../layouts/BottomLayout.astro'
 import ProjectCard from '../components/ProjectCard.astro'
 
 import { contentfulClient } from '../lib/contentful'
+import { PROJECTS } from '../data/projects'
+
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import type { EntryFieldTypes } from 'contentful'
 
@@ -19,7 +21,9 @@ interface Project {
   }
 }
 
-const entries = await contentfulClient.getEntries<Project>({})
+//const entries = await contentfulClient.getEntries<Project>({})
+const entries = { items: PROJECTS }
+
 ---
 
 <BaseLayout
